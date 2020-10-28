@@ -1,0 +1,171 @@
+body{
+    margin:0;
+}
+ 
+header {
+    display: flex;
+    justify-content: center; 
+    flex-direction: column;
+    background: black;
+    text-align: center;
+    margin: 0;
+}
+
+header nav{
+    margin: 0;
+}
+ 
+header nav ul{
+    margin: 0;
+    padding-left: 0;
+    padding-right:0;
+    padding-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    list-style: none;
+}
+ 
+header nav ul li{
+    margin-top:20px;
+}
+ 
+header nav ul li a{
+text-decoration: none;
+background-color: #ffffff;
+padding: 5px;
+border-radius:10px;
+}
+ 
+ 
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    }
+ 
+h2 {
+    color: black;
+    font-size: 30 px;
+    font-family: Helvetica, arial, sans-serif;
+    line-height: 125%;
+    text-align: center;
+ }
+ 
+h3 {
+    color: white;
+    font-size: 25 px;
+    font-family: Helvetica, arial, sans-serif;
+    text-align: center;
+ }
+h4 {
+    color: black;
+    font-size: 15 px;
+    font-family: Helvetica, arial, sans-serif;
+    text-align: center;
+}
+h5 {
+    color: #ffffff;
+    font-size: 15 px;
+    font-family: Helvetica, arial, sans-serif;
+    text-align: center;
+}
+img {
+    border-radius: 50%;
+    align-self: center;
+    width: 75%;
+    padding-top:15px;
+}
+p {
+    color: black;
+    font-size: 20 px;
+    font-family: Helvetica, arial, sans-serif;
+}
+
+footer {
+    background-color: #000;
+}
+ 
+ /*I adjusted the alignment and margin for the list items for aesthetic reasons(thanks Shuddha :) */
+body li {
+    color: rgb(23, 82, 94);
+    font-size: 20 px;
+    font-family: Helvetica, arial, sans-serif;
+}
+ 
+ 
+ /* i wanted to add my own color twist on these */
+ a:link {color: black;}
+ a:visited {color: rgb(23, 82, 94);}
+ a:hover {color: grey;}
+ a:active {color: black;}
+ 
+ 
+/* class to center text*/
+.center {
+    text-align: center;
+}
+ 
+.extra-bump{
+    margin-left: 70px;
+}
+ 
+ 
+ /* I really liked this 45 degree angle horizontal rule so I recreated it a little differently here */
+hr {
+   width: 20px;
+   height: 20px;
+   border: none;
+   background: #000;
+   color: #000;
+   margin-top: 50px;
+   margin-bottom: 50px;
+   transform: rotate(45deg);
+}
+ 
+/*class for background*/
+.backg {
+    background-color:rgb(236, 236, 236);
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+ 
+/* adds border radius to backround elements*/
+@media all and (min-width:475px) {
+
+    .backg{
+        border-radius:10%;
+        padding: 25px;
+    }
+
+}
+
+/*changes nav to second iteration*/
+@media all and (min-width:615px) {
+    
+
+    main{
+        max-width: 500px;
+    }
+
+    header nav ul{
+        flex-direction: row;
+    }
+ 
+}
+/* portion to adjust nav when user is on a computer */
+@media all and (min-width:1205px) {
+ 
+    header {
+        display: flex;
+        justify-content: space-between; 
+        flex-direction: row;
+        background: black;
+        line-height: 150%;
+    }
+     
+}
