@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Shopping List</title>
+  <title>Bookmark App</title>
   <link rel="shortcut icon" href="#">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -13,13 +13,19 @@
 </head>
 
 <body>
+
   <header>
     <h1>Bookmark App</h1>
   </header>
+
+  <br>
+
   <section id="top-buttons-container">
+
     <form id="new-button" class="button">
       <button type="submit">New Bookmark</button>
     </form>
+
     <form id="filter-button" class="button">
       <label for="filter-button">Filter by stars:</label>
         <select name="filter by" size="1">
@@ -30,25 +36,41 @@
           <option value="5">5</option>
         </select>
     </form>
+
   </section>
   
   
-  
-  <div class="container">
-    <h1>Shopping List</h1>
-    <form id="js-shopping-list-form">
-      <label for="shopping-list-entry">Add an item</label>
-      <input type="text" name="shopping-list-entry" class="js-shopping-list-entry" placeholder="e.g., broccoli">
-      <button type="submit">Add item</button>
-    </form>
-    <div>
-      <input type="checkbox" id="filter-checked" class="filter-checked js-filter-checked" />
-      <label for="filter-checked">Hide Checked</label>
-    </div>
-    <ul class="shopping-list js-shopping-list">
-    </ul>
-  </div>
-  
+  <main>
+    <section class="container">
+      <div class="item">
+        <p>Title of Link</p>
+        <div>
+          <img src="img/star.png" width="20px" alt="star">
+        </div>
+      </div>
+      <div class="item">
+        <p>Title of Link</p>
+      </div>
+      <div class="item">
+        <p>Title of Link</p>
+      </div>
+      <div class="item">
+        <p>Title of Link</p>
+      </div>
+      <div class="item">
+        <p>Title of Link</p>
+      </div>
+    </section>
+    <img src="img/star.png">
+  </main>
+
+  <br> <br> <br> <br> <br> <br> <br>
+
+  <footer>
+    <p>
+      Star by Marcel Boer from the Noun Project
+    </p>
+  </footer>
 </body>
 
 </html>

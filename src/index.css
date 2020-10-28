@@ -6,9 +6,10 @@ header {
     display: flex;
     justify-content: center; 
     flex-direction: column;
-    background: rgb(193, 252, 197);
+    background: rgb(8, 8, 99);
     text-align: center;
     margin: 0;
+    outline: 10px solid black;
 }
 main {
     display: flex;
@@ -19,6 +20,9 @@ main {
     margin-right: auto;
     }
  
+h1 {
+    color:white;
+}
 h2 {
     color: black;
     font-size: 30 px;
@@ -45,20 +49,16 @@ h5 {
     font-family: Helvetica, arial, sans-serif;
     text-align: center;
 }
-img {
-    border-radius: 50%;
-    align-self: center;
-    width: 75%;
-    padding-top:15px;
-}
+
 p {
     color: black;
     font-size: 20 px;
     font-family: Helvetica, arial, sans-serif;
 }
- /**********************************************************************/
+footer{
+    text-align: center;
+}
 
- 
  /* i wanted to add my own color twist on these */
  a:link {color: black;}
  a:visited {color: rgb(23, 82, 94);}
@@ -84,7 +84,12 @@ hr {
     padding-left: 5px;
     padding-right: 5px;
 }
-/**********************************************************************/
+ /**********************************************************************/
+  /**********************************************************************/
+   /**********************************************************************/
+    /**********************************************************************/
+     /**********************************************************************/
+      /**********************************************************************/
 #top-buttons-container{
     display: flex;
     flex-direction: row;
@@ -93,7 +98,7 @@ hr {
 }
 .button{
 padding:5px;
-outline: 3px solid blue;
+outline: 3px solid rgb(8, 8, 99);
 background: #39d6ce;
 margin: 10px
 }
@@ -103,46 +108,15 @@ margin: 10px
 #filter-button{
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.item{
+    outline: 3px solid rgb(8, 8, 99);
+    background: #39d6ce;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
 
 
 
@@ -151,6 +125,21 @@ margin: 10px
 
 
 /**********************************************************************/ 
+/**********************************************************************/
+/**********************************************************************/
+/**********************************************************************/
+/**********************************************************************/
+
+/*changes nav to second iteration*/
+@media all and (min-width:350px) {
+    
+
+    main {
+        max-width: 350px;
+    }
+ 
+}
+
 /* adds border radius to backround elements*/
 @media all and (min-width:475px) {
 
@@ -161,15 +150,7 @@ margin: 10px
 
 }
 
-/*changes nav to second iteration*/
-@media all and (min-width:615px) {
-    
 
-    main{
-        max-width: 500px;
-    }
- 
-}
 /* portion to adjust nav when user is on a computer */
 @media all and (min-width:1205px) {
  
