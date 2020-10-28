@@ -13,7 +13,27 @@
 </head>
 
 <body>
-  <div id="root"></div>
+  <header>
+    <h1>Bookmark App</h1>
+  </header>
+  <section id="top-buttons-container">
+    <form id="new-button" class="button">
+      <button type="submit">New Bookmark</button>
+    </form>
+    <form id="filter-button" class="button">
+      <label for="filter-button">Filter by stars:</label>
+        <select name="filter by" size="1">
+          <option value="1">1+</option>
+          <option value="2">2+</option>
+          <option value="3">2+</option>
+          <option value="4">4+</option>
+          <option value="5">5</option>
+        </select>
+    </form>
+  </section>
+  
+  
+  
   <div class="container">
     <h1>Shopping List</h1>
     <form id="js-shopping-list-form">

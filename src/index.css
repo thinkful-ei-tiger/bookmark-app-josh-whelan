@@ -1,43 +1,15 @@
+/**********************************************************************/
 body{
     margin:0;
 }
- 
 header {
     display: flex;
     justify-content: center; 
     flex-direction: column;
-    background: black;
+    background: rgb(193, 252, 197);
     text-align: center;
     margin: 0;
 }
-
-header nav{
-    margin: 0;
-}
- 
-header nav ul{
-    margin: 0;
-    padding-left: 0;
-    padding-right:0;
-    padding-bottom: 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    list-style: none;
-}
- 
-header nav ul li{
-    margin-top:20px;
-}
- 
-header nav ul li a{
-text-decoration: none;
-background-color: #ffffff;
-padding: 5px;
-border-radius:10px;
-}
- 
- 
 main {
     display: flex;
     flex-direction: column;
@@ -84,34 +56,14 @@ p {
     font-size: 20 px;
     font-family: Helvetica, arial, sans-serif;
 }
+ /**********************************************************************/
 
-footer {
-    background-color: #000;
-}
- 
- /*I adjusted the alignment and margin for the list items for aesthetic reasons(thanks Shuddha :) */
-body li {
-    color: rgb(23, 82, 94);
-    font-size: 20 px;
-    font-family: Helvetica, arial, sans-serif;
-}
- 
  
  /* i wanted to add my own color twist on these */
  a:link {color: black;}
  a:visited {color: rgb(23, 82, 94);}
  a:hover {color: grey;}
  a:active {color: black;}
- 
- 
-/* class to center text*/
-.center {
-    text-align: center;
-}
- 
-.extra-bump{
-    margin-left: 70px;
-}
  
  
  /* I really liked this 45 degree angle horizontal rule so I recreated it a little differently here */
@@ -132,8 +84,73 @@ hr {
     padding-left: 5px;
     padding-right: 5px;
 }
+/**********************************************************************/
+#top-buttons-container{
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    justify-content: center;
+}
+.button{
+padding:5px;
+outline: 3px solid blue;
+background: #39d6ce;
+margin: 10px
+}
+#new-button{
 
- 
+}
+#filter-button{
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**********************************************************************/ 
 /* adds border radius to backround elements*/
 @media all and (min-width:475px) {
 
@@ -151,21 +168,11 @@ hr {
     main{
         max-width: 500px;
     }
-
-    header nav ul{
-        flex-direction: row;
-    }
  
 }
 /* portion to adjust nav when user is on a computer */
 @media all and (min-width:1205px) {
  
-    header {
-        display: flex;
-        justify-content: space-between; 
-        flex-direction: row;
-        background: black;
-        line-height: 150%;
-    }
+
      
 }
