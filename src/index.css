@@ -118,7 +118,25 @@ margin: 10px
     justify-content: space-between;
 }
 
+.expanded{
+    outline: 3px solid rgb(8, 8, 99);
+    background: #39d6ce;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
+.expanded button{
+    margin: 10px;
+}
+
+.imgHolder{
+    justify-content: center;
+    align-content: center;
+    padding:15px;
+}
 
 
 
