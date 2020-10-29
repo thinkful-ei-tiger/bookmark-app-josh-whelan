@@ -1,3 +1,5 @@
+const STORE = {}
+
 
 
 
@@ -5,4 +7,4 @@
 export default {
     
 
-}
+  }

@@ -59,9 +59,8 @@ footer{
     text-align: center;
 }
 
- /* i wanted to add my own color twist on these */
  a:link {color: black;}
- a:visited {color: rgb(23, 82, 94);}
+ a:visited {color: black}
  a:hover {color: grey;}
  a:active {color: black;}
  
@@ -150,7 +149,34 @@ form.addItem{
     padding:15px;
 }
 
+div.visitButton{
+    text-align:center;
+    justify-content: center;
+    margin: 10px;
+    padding:5px;
+    outline: 3px solid rgb(8, 8, 99);
+    background: #39d6ce;
 
+}
+
+div.deleteButton{
+    text-align:center;
+    justify-content: center;
+    margin: 10px;
+    padding:5px;
+    outline: 3px solid rgb(8, 8, 99);
+    background: #39d6ce;
+
+}
+div.createButton{
+    text-align:center;
+    justify-content: center;
+    margin: 10px;
+    padding:5px;
+    outline: 3px solid rgb(8, 8, 99);
+    background: #39d6ce;
+
+}
 
 
 
