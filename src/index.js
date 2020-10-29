@@ -10,10 +10,11 @@ import render from './scripts/renderpage'
 
 function main() {
   render.renderTopButtonContainer()
+  store.createStore()
   render.render()
-
   listeners.bindEventListeners()
 
+  console.log(store.STORE.bookmarks)
   console.log('Page is rendered')
 }
 

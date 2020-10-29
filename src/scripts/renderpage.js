@@ -1,6 +1,6 @@
 import $ from 'jquery'
 
-
+import store from './store'
 
 const renderTopButtonContainer = function (){
     $('#top-buttons-container').html(
@@ -23,13 +23,14 @@ const renderTopButtonContainer = function (){
 
 const renderAddItemContainer = function (){
 //if new bookmark was clicked, then 
-$('.addItem').html(
+if(store.STORE.addItemWindow === 1){
+$('#addItem').html(
     `<label for="linkTitle">Link:</label>
-    <input type="text" name="linkTitle" class="js-addItemLink" placeholder="www.fake-website-7893024.com">
+    <input type="text" name="linkTitle" class="js-addItemLink" placeholder="www.website-that-i-like-7893024.com">
     <label for="bookmarkTitle">Title of Bookmark:</label>
-    <input type="text" name="bookmarkTitle" class="js-addItemTitle" placeholder="Fake Website">
+    <input type="text" name="bookmarkTitle" class="js-addItemTitle" placeholder="My Favorite Website">
     <label for="filter-button">Level of Importance:</label>
-      <select name="filter-button" size="1">
+      <select name="filter-button" class="js-filter-button" size="1">
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -37,9 +38,9 @@ $('.addItem').html(
         <option value="5">5</option>
       </select>
     <label for="description">Description(optional):</label>
-    <textarea class="description"></textarea>
+    <textarea name="description" class="js-description"></textarea>
     <div class="createButton" onclick="" style="cursor: pointer;">Create New Bookmark</div>`
-)
+)}
 }
 
 const renderErrorMessage = function (){

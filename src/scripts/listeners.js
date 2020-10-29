@@ -2,6 +2,7 @@ import $ from 'jquery'
 
 import render from './renderpage'
 import store from './store'
+import api from './api'
 
 const handleItemClickExpand = function () {
     $('.container').on('click', '.item', event => {
@@ -16,17 +17,22 @@ const handleItemClickExpand = function () {
 const handleNewBookmarkClicked = function (){
     $('#top-buttons-container').on('click', '#new-button', event => {
         event.preventDefault()
-        console.log('new button clicked')
-           //open add bookmark section
+        store.STORE.addItemWindow = 1
+        render.render()
         handleCreateNewBookmarkClicked()
 })
 }
 
 const handleCreateNewBookmarkClicked = function (){
-    $('.addItem').on('click','.createButton', event => {
-        console.log('create new bookmark clicked')
-        //add new item based on inputs
-        //hide the add section
+    $('#addItem').on('click','.createButton', function (evt) {
+        let title = $('.js-addItemTitle').val()
+        let url = $('.js-addItemLink').val()
+        let desc = $('.js-description').val()
+        let rating = $('.js-filter-button').val()
+        //test inputs for errors
+        api.postBookmark(title,url,desc,rating)
+        $('#addItem').empty()
+        store.STORE.addItemWindow = 0
         //render()
     })
 }
