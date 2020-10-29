@@ -103,11 +103,23 @@ background: #39d6ce;
 margin: 10px
 }
 #new-button{
-
 }
 #filter-button{
-
 }
+
+form.addItem{
+    outline: 3px solid rgb(8, 8, 99);
+    background: #39d6ce;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin:20px;
+    padding: 10px;
+    text-align: center;
+}
+
 .item{
     outline: 3px solid rgb(8, 8, 99);
     background: #39d6ce;
