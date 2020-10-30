@@ -1,6 +1,7 @@
 import $ from 'jquery'
 
 import store from './store'
+import api from './api'
 
 const renderTopButtonContainer = function (){
     $('#top-buttons-container').html(
@@ -22,7 +23,6 @@ const renderTopButtonContainer = function (){
 }
 
 const renderAddItemContainer = function (){
-//if new bookmark was clicked, then 
 if(store.STORE.addItemWindow === 1){
 $('#addItem').html(
     `<label for="linkTitle">Link:</label>
@@ -50,6 +50,9 @@ const renderErrorMessage = function (){
 }
 
 const renderMainContainer = function (){
+    console.log('rendermaincontainer running')
+    //api.getBookmarks()
+    console.log(store.STORE.bookmarks)
     $('.container').html(
         `<div class="item" onclick="" style="cursor: pointer;">
         <p>Title of Link</p>
@@ -110,13 +113,14 @@ const renderMainContainer = function (){
 }
 
 const render = function(){
+    renderMainContainer()
     renderAddItemContainer()
     renderErrorMessage()
-    renderMainContainer()
 }
 
 
 export default {
-    renderTopButtonContainer,
-    render
+    render,
+    renderTopButtonContainer
+   
   }

@@ -1,4 +1,4 @@
-
+import $ from 'jquery'
 import store from './store'
 
 const BASE_URL = 'https://thinkful-list-api.herokuapp.com/joshua/bookmarks'
@@ -11,7 +11,19 @@ function getBookmarks (){
         },
     })
       .then(response => response.json())
-      .then(data => {console.log(data)})
+      .then(data => {
+
+        store.STORE.bookmarks = []
+         store.populateStore(data) 
+
+       /*   let bookmarks = data.map(bookmark => ({
+              ...bookmark,expanded:0
+          })
+            )
+          store.STORE.bookmarks = bookmarks */
+
+          //render
+        })
       .catch(error => {console.log('API Request Error: Could not get bookmarks')})
   }
 

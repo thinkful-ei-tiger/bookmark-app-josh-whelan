@@ -3,19 +3,21 @@ import $ from 'jquery'
 import 'normalize.css'
 import './index.css'
 
-import listeners from './scripts/listeners'
+import render from './scripts/renderpage'
 import api from './scripts/api'
 import store from './scripts/store'
-import render from './scripts/renderpage'
+import listeners from './scripts/listeners'
+
+
+
 
 function main() {
-  render.renderTopButtonContainer()
-  store.createStore()
-  render.render()
-  listeners.bindEventListeners()
+  render.render().then(
+  render.renderTopButtonContainer()).then(
+  listeners.bindEventListeners()).then(
 
-  console.log(store.STORE.bookmarks)
-  console.log('Page is rendered')
+  console.log(store.STORE.bookmarks)).then(
+  console.log('Main function is done running'))
 }
 
 

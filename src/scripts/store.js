@@ -8,12 +8,6 @@ const STORE = {
   filterBy:1
 }
 
-const createStore = function (){
-  console.log("create store going")
-console.log("api.createBookmarks() is " + api.getBookmarks())
-let promise = api.getBookmarks().then(
- // this is where i am !!!!!!!!!!!!!!!!!!!!!!!! populateStore(promise)
-)}
 const populateStore = function (arr){
   for(let i=0;i<arr.length;i++){
       let pushmark = {}
@@ -29,5 +23,5 @@ const populateStore = function (arr){
 
 export default {
     STORE,
-    createStore
+    populateStore
   }
