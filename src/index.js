@@ -12,12 +12,12 @@ import listeners from './scripts/listeners'
 
 
 function main() {
-  render.render().then(
-  render.renderTopButtonContainer()).then(
-  listeners.bindEventListeners()).then(
-
-  console.log(store.STORE.bookmarks)).then(
-  console.log('Main function is done running'))
+  console.log("main function starting")
+  api.getBookmarks()
+  listeners.bindEventListeners()
+  render.renderTopButtonContainer()
+  render.render()
+  console.log('Main function is done running')
 }
 
 

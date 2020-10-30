@@ -5,14 +5,23 @@ import store from './store'
 import api from './api'
 
 const handleItemClickExpand = function () {
-    $('.container').on('click', '.item', event => {
+    $('#container').on('click', '.item', event => {
       event.preventDefault();
       console.log(`item expand got clicked`)
-      //const id = getItemIdFromElement(event.currentTarget);
+     
+   // $(event.currentTarget).data-id
     //  const itemName = $(event.currentTarget).find('.shopping-item').val();
-    //  render();
-    });
-  };
+    for (let i=0; i<store.STORE.bookmarks.length;i++){
+    if (store.STORE.bookmarks[i].title === "addicting games"){
+        if (store.STORE.bookmarks[i].expanded === 0){
+            store.STORE.bookmarks[i].expanded = 1
+        } else {
+            store.STORE.bookmarks[i].expanded = 0
+        }
+    }}
+        render.render()
+    })
+  }
 
 const handleNewBookmarkClicked = function (){
     $('#top-buttons-container').on('click', '#new-button', event => {

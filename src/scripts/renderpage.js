@@ -51,65 +51,42 @@ const renderErrorMessage = function (){
 
 const renderMainContainer = function (){
     console.log('rendermaincontainer running')
-    //api.getBookmarks()
     console.log(store.STORE.bookmarks)
-    $('.container').html(
-        `<div class="item" onclick="" style="cursor: pointer;">
-        <p>Title of Link</p>
+    let mainRet = ``
+    for (let i=0;i<store.STORE.bookmarks.length;i++){
+        mainRet += createMainContainerItem(store.STORE.bookmarks[i])
+    }
+    $('#container').html(mainRet)
+}
+
+const createMainContainerItem = function(obj){
+    if (obj.extended === 0){
+    return(`<div class="item" onclick="" style="cursor: pointer;" data-id="${obj.id}">
+        <p>${obj.title}</p>
         <div class="imgHolder">
-          <img src="src/img/star.png" width="20px" alt="star"/>
+          ${createStarsForItems(parseInt(obj.rating))}
         </div>
-      </div>
-      <div class="item" onclick="" style="cursor: pointer;">
-        <p>Title of Link</p>
+      </div>`)} else{
+        return(`<div class="item" onclick="" style="cursor: pointer;">
+        <p>${obj.title}</p>
         <div class="imgHolder">
-          <img src="src/img/star.png" width="20px" alt="star"/>
-          <img src="src/img/star.png" width="20px" alt="star"/>
-        </div>
-      </div>
-      <div class="item" onclick="" style="cursor: pointer;">
-        <p>Title of Link</p>
-        <div class="imgHolder">
-          <img src="src/img/star.png" width="20px" alt="star"/>
-          <img src="src/img/star.png" width="20px" alt="star"/>
-          <img src="src/img/star.png" width="20px" alt="star"/>
-        </div>
-      </div>
-      <div class="item" onclick="" style="cursor: pointer;">
-        <p>Title of Link</p>
-        <div class="imgHolder">
-          <img src="src/img/star.png" width="20px" alt="star"/>
-          <img src="src/img/star.png" width="20px" alt="star"/>
-          <img src="src/img/star.png" width="20px" alt="star"/>
-          <img src="src/img/star.png" width="20px" alt="star"/>
-        </div>
-      </div>
-      <div class="item" onclick="" style="cursor: pointer;">
-        <p>Title of Link</p>
-        <div class="imgHolder">
-          <img src="src/img/star.png" width="20px" alt="star"/>
-          <img src="src/img/star.png" width="20px" alt="star"/>
-          <img src="src/img/star.png" width="20px" alt="star"/>
-          <img src="src/img/star.png" width="20px" alt="star"/>
-          <img src="src/img/star.png" width="20px" alt="star"/>
-        </div>
-      </div>
-      <div class="item" onclick="" style="cursor: pointer;">
-        <p>Title of Link</p>
-        <div class="imgHolder">
-          <img src="src/img/star.png" width="20px" alt="star"/>
-          <img src="src/img/star.png" width="20px" alt="star"/>
-          <img src="src/img/star.png" width="20px" alt="star"/>
-          <img src="src/img/star.png" width="20px" alt="star"/>
-          <img src="src/img/star.png" width="20px" alt="star"/>
+          ${createStarsForItems(parseInt(obj.rating))}
         </div>
       </div>
       <div class="expanded">
-        <a href="https:/www.google.com" target="_blank"><div class="visitButton" >Visit Site</div></a>
-        <p>Description of the bookmarks will go here, here users can put a description about hoe they want thier item to be here</p>
+        <a href=${obj.url} target="_blank"><div class="visitButton" >Visit Site</div></a>
+        <p>${desc}</p>
         <div class="deleteButton" onclick="" style="cursor: pointer;">Delete Bookmark</div>
       </div>`
-    )
+      )}
+}
+
+const createStarsForItems = function (number){
+    let ret = ``
+    for (let i=number;i>0;i--){
+        ret += `<img src="src/img/star.png" width="20px" alt="star"/>`
+    }
+    return ret
 }
 
 const render = function(){
@@ -120,7 +97,6 @@ const render = function(){
 
 
 export default {
-    render,
-    renderTopButtonContainer
-   
+    renderTopButtonContainer,
+    render
   }

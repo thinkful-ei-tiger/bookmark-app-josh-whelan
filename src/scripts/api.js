@@ -1,5 +1,6 @@
 import $ from 'jquery'
 import store from './store'
+import render from "./renderpage"
 
 const BASE_URL = 'https://thinkful-list-api.herokuapp.com/joshua/bookmarks'
 
@@ -22,7 +23,7 @@ function getBookmarks (){
             )
           store.STORE.bookmarks = bookmarks */
 
-          //render
+          render.render()
         })
       .catch(error => {console.log('API Request Error: Could not get bookmarks')})
   }
@@ -43,6 +44,7 @@ function getBookmarks (){
     })
       .then(response => response.json())
       .then(data => {console.log(data)})
+      .then(render.render())
       .catch(error => {console.log('API Request Error: Could not post bookmark')})
   }
 
