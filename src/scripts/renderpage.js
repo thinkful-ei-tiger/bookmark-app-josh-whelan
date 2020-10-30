@@ -2,6 +2,7 @@ import $ from 'jquery'
 
 import store from './store'
 import api from './api'
+import listeners from './listeners'
 
 const renderTopButtonContainer = function (){
     $('#top-buttons-container').html(
@@ -40,13 +41,14 @@ $('#addItem').html(
     <label for="description">Description(optional):</label>
     <textarea name="description" class="js-description"></textarea>
     <div class="createButton" onclick="" style="cursor: pointer;">Create New Bookmark</div>`
-)}
+)} else{$('#addItem').empty()}
 }
 
 const renderErrorMessage = function (){
-    $('#errorMessageContainer').html(
-        ``
-    )
+    $('#errorMessageContainer').html(`
+        ${listeners.listenersError}
+        
+    `)
 }
 
 const renderMainContainer = function (){
@@ -61,7 +63,7 @@ const renderMainContainer = function (){
 
 const createMainContainerItem = function(obj){
     let retu = ``
-    if (obj.expanded === 0){
+    if (obj.expanded === false){
     retu = `<div class="item" onclick="" style="cursor: pointer;" data-id="${obj.id}">
         <p>${obj.title}</p>
         <div class="imgHolder">
@@ -76,8 +78,8 @@ const createMainContainerItem = function(obj){
       </div>
       <div class="expanded">
         <a href=${obj.url} target="_blank"><div class="visitButton" >Visit Site</div></a>
-        <p>${desc}</p>
-        <div class="deleteButton" onclick="" style="cursor: pointer;">Delete Bookmark</div>
+        <p>${obj.desc}</p>
+        <div class="deleteButton" onclick="" style="cursor: pointer;" data-id="${obj.id}">Delete Bookmark</div>
       </div>`
     }
     return retu

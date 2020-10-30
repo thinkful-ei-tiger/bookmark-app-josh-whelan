@@ -4,7 +4,9 @@ import render from "./renderpage"
 
 const BASE_URL = 'https://thinkful-list-api.herokuapp.com/joshua/bookmarks'
 
-function getBookmarks (){
+const apiError = ``
+
+const getBookmarks = function (){
     return fetch(`${BASE_URL}`,{
         method: 'GET',
         headers: {
@@ -14,21 +16,22 @@ function getBookmarks (){
       .then(response => response.json())
       .then(data => {
 
-      /*  store.STORE.bookmarks = []
-         store.populateStore(data) */
+        store.STORE.bookmarks = []
+         store.populateStore(data) 
 
-          let bookmarks = data.map(bookmark => ({
-              ...bookmark,expanded:1
+        /*  let bookmarks = data.map(bookmark => ({
+              ...bookmark,expanded:0
           })
             )
-          store.STORE.bookmarks = bookmarks 
+          store.STORE.bookmarks = bookmarks */
 
-          render.render()
-        })
-      .catch(error => {console.log('API Request Error: Could not get bookmarks')})
+          console.log("get bookmarks done")
+        }).then(render.render())
+      .catch(error => {apiError += 'API Request Error: Could not get bookmarks'})
+      render.render()
   }
 
-  function postBookmark (tit,uurrll,description,rateing){
+  const postBookmark = function (tit,uurrll,description,rateing){
 
       let params = {title: `${tit}`,
       url: `${uurrll}`,
@@ -44,14 +47,28 @@ function getBookmarks (){
     })
       .then(response => response.json())
       .then(data => {console.log(data)})
-      .then(render.render())
-      .catch(error => {console.log('API Request Error: Could not post bookmark')})
+      .catch(error => {apiError += 'API Request Error: Could not post bookmark'})
+      getBookmarks()
   }
 
+  const deleteBookmark = function (id){
 
+  fetch(`${BASE_URL}/${id}`,{
+      method: 'DELETE',
+      headers: {
+          'Content-Type': 'application/json'
+      }
+  })
+    .then(response => response.json())
+    .then(data => {console.log(data)})
+    .then(render.render())
+    .catch(error => {apiError += 'API Request Error: Could not delete bookmark'})
+    getBookmarks()
+}
 
 export default {
     getBookmarks,
-    postBookmark
-
+    postBookmark,
+    deleteBookmark,
+    apiError
 }
