@@ -14,14 +14,14 @@ function getBookmarks (){
       .then(response => response.json())
       .then(data => {
 
-        store.STORE.bookmarks = []
-         store.populateStore(data) 
+      /*  store.STORE.bookmarks = []
+         store.populateStore(data) */
 
-       /*   let bookmarks = data.map(bookmark => ({
-              ...bookmark,expanded:0
+          let bookmarks = data.map(bookmark => ({
+              ...bookmark,expanded:1
           })
             )
-          store.STORE.bookmarks = bookmarks */
+          store.STORE.bookmarks = bookmarks 
 
           render.render()
         })

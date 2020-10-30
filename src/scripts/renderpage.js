@@ -60,14 +60,15 @@ const renderMainContainer = function (){
 }
 
 const createMainContainerItem = function(obj){
-    if (obj.extended === 0){
-    return(`<div class="item" onclick="" style="cursor: pointer;" data-id="${obj.id}">
+    let retu = ``
+    if (obj.expanded === 0){
+    retu = `<div class="item" onclick="" style="cursor: pointer;" data-id="${obj.id}">
         <p>${obj.title}</p>
         <div class="imgHolder">
           ${createStarsForItems(parseInt(obj.rating))}
         </div>
-      </div>`)} else{
-        return(`<div class="item" onclick="" style="cursor: pointer;">
+      </div>`} else { retu =
+        `<div class="item" onclick="" style="cursor: pointer;" data-id="${obj.id}">
         <p>${obj.title}</p>
         <div class="imgHolder">
           ${createStarsForItems(parseInt(obj.rating))}
@@ -78,7 +79,8 @@ const createMainContainerItem = function(obj){
         <p>${desc}</p>
         <div class="deleteButton" onclick="" style="cursor: pointer;">Delete Bookmark</div>
       </div>`
-      )}
+    }
+    return retu
 }
 
 const createStarsForItems = function (number){
