@@ -12,7 +12,7 @@ const handleItemClickExpand = function () {
    // $(event.currentTarget).data-id
     //  const itemName = $(event.currentTarget).find('.shopping-item').val();
     for (let i=0; i<store.STORE.bookmarks.length;i++){
-    if (store.STORE.bookmarks[i].title === "addicting games"){
+    if (store.STORE.bookmarks[i].title == "addicting games"){
         if (store.STORE.bookmarks[i].expanded === 0){
             store.STORE.bookmarks[i].expanded = 1
         } else {
@@ -25,6 +25,7 @@ const handleItemClickExpand = function () {
 
 const handleNewBookmarkClicked = function (){
     $('#top-buttons-container').on('click', '#new-button', event => {
+        console.log('something')
         event.preventDefault()
         store.STORE.addItemWindow = 1
         render.render()
