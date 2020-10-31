@@ -35,9 +35,6 @@ const handleCreateNewBookmarkClicked = function (){
         if (title === '' || url ===''){
             render.renderErrorMessage('title and url are required')
             return
-        } else if (url.slice(0,7) !== 'https:/'){
-            render.renderErrorMessage('url must start with https://')
-            return
         }else{
             render.deleteErrorMessage()
         api.postBookmark(title,url,desc,rating)
