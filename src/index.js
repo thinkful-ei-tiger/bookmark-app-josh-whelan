@@ -11,12 +11,10 @@ import listeners from './scripts/listeners'
 
 
 function main() {
-  console.log("main function starting")
   api.getBookmarks()
   listeners.bindEventListeners()
   render.renderTopButtonContainer()
   render.render()
-  console.log('Main function is done running')
 }
 
 

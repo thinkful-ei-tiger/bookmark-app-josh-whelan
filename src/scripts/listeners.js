@@ -4,8 +4,6 @@ import render from './renderpage'
 import store from './store'
 import api from './api'
 
-const listenersError = ``
-
 const handleItemClickExpand = function () {
     $('#container').on('click', '.item', event => {
     let itemIddd = $(event.currentTarget).data()
@@ -16,7 +14,7 @@ const handleItemClickExpand = function () {
            store.STORE.bookmarks[i].expanded = true} 
            else {store.STORE.bookmarks[i].expanded = false}
 
-    }}render.render()
+    }}render.renderMinus()
 })}
 
 const handleNewBookmarkClicked = function (){
@@ -34,11 +32,19 @@ const handleCreateNewBookmarkClicked = function (){
         let url = $('.js-addItemLink').val()
         let desc = $('.js-description').val()
         let rating = $('.js-filter-button').val()
-        //test inputs for errors
+        if (title === '' || url ===''){
+            render.renderErrorMessage('title and url are required')
+            return
+        } else if (url.slice(0,7) !== 'https:/'){
+            render.renderErrorMessage('url must start with https://')
+            return
+        }else{
+            render.deleteErrorMessage()
         api.postBookmark(title,url,desc,rating)
         store.STORE.addItemWindow = 0
         render.render()
-    })
+        render.render()
+    }})
 }
 
 const handleDeleteBookmarkClicked = function (){
@@ -47,18 +53,16 @@ const handleDeleteBookmarkClicked = function (){
         let itemId = itemIddd.id
         api.deleteBookmark(itemId)
         render.render()
+        render.render()
     })
 }
 
 const handleFilterByStars = function (){
     $('#top-buttons-container').on('click', '#filter-button', event => {
-        event.preventDefault()
         console.log('filter by stars clicked')
-        //get filter value
-
-        //change store filter reference
-
-        //render()
+        let newFilter = $(".js-filter-by").val()
+        store.STORE.filterBy = newFilter
+        render.render()
 })
 }
   
@@ -70,6 +74,5 @@ const bindEventListeners = function () {
   }
 
   export default {
-    bindEventListeners,
-    listenersError
+    bindEventListeners
   }

@@ -4,8 +4,6 @@ import render from "./renderpage"
 
 const BASE_URL = 'https://thinkful-list-api.herokuapp.com/joshua/bookmarks'
 
-const apiError = ``
-
 const getBookmarks = function (){
     return fetch(`${BASE_URL}`,{
         method: 'GET',
@@ -26,9 +24,9 @@ const getBookmarks = function (){
           store.STORE.bookmarks = bookmarks */
 
           console.log("get bookmarks done")
-        }).then(render.render())
-      .catch(error => {apiError += 'API Request Error: Could not get bookmarks'})
-      render.render()
+        }).then(render.renderMinus())
+      .catch(error => {render.renderErrorMessage('API Request Error: Could not get bookmarks')})
+      render.renderMinus()
   }
 
   const postBookmark = function (tit,uurrll,description,rateing){
@@ -47,8 +45,8 @@ const getBookmarks = function (){
     })
       .then(response => response.json())
       .then(data => {console.log(data)})
-      .catch(error => {apiError += 'API Request Error: Could not post bookmark'})
-      getBookmarks()
+      .catch(error => {render.renderErrorMessage('API Request Error: Could not post bookmark')})
+      render.render()
   }
 
   const deleteBookmark = function (id){
@@ -61,14 +59,12 @@ const getBookmarks = function (){
   })
     .then(response => response.json())
     .then(data => {console.log(data)})
-    .then(render.render())
-    .catch(error => {apiError += 'API Request Error: Could not delete bookmark'})
-    getBookmarks()
+    .catch(error => {render.renderErrorMessage('API Request Error: Could not delete bookmark')})
+    render.render()
 }
 
 export default {
     getBookmarks,
     postBookmark,
     deleteBookmark,
-    apiError
 }

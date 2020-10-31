@@ -12,7 +12,7 @@ const renderTopButtonContainer = function (){
   
       <form id="filter-button" class="button">
         <label for="filter-button">Filter by stars:</label>
-          <select name="filter by" size="1">
+          <select name="filter by" class="js-filter-by" size="1">
             <option value="1">1+</option>
             <option value="2">2+</option>
             <option value="3">3+</option>
@@ -44,19 +44,21 @@ $('#addItem').html(
 )} else{$('#addItem').empty()}
 }
 
-const renderErrorMessage = function (){
+const renderErrorMessage = function (inp){
     $('#errorMessageContainer').html(`
-        ${listeners.listenersError}
-        
+        ${inp}<br>
     `)
 }
 
+const deleteErrorMessage = function (){
+    $('#errorMessageContainer').empty()
+}
+
 const renderMainContainer = function (){
-    console.log('rendermaincontainer running')
-    console.log(store.STORE.bookmarks)
     let mainRet = ``
     for (let i=0;i<store.STORE.bookmarks.length;i++){
-        mainRet += createMainContainerItem(store.STORE.bookmarks[i])
+        if (store.STORE.bookmarks[i].rating >= store.STORE.filterBy){
+        mainRet += createMainContainerItem(store.STORE.bookmarks[i])}
     }
     $('#container').html(mainRet)
 }
@@ -94,13 +96,21 @@ const createStarsForItems = function (number){
 }
 
 const render = function(){
+    api.getBookmarks()
     renderMainContainer()
     renderAddItemContainer()
-    renderErrorMessage()
+}
+
+const renderMinus = function(){
+    renderMainContainer()
+    renderAddItemContainer()
 }
 
 
 export default {
     renderTopButtonContainer,
-    render
+    render,
+    renderErrorMessage,
+    deleteErrorMessage,
+    renderMinus
   }

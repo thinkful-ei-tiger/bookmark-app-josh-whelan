@@ -20,7 +20,7 @@ const STORE = {
       pushmark.desc = `${arr[i].desc}`
       STORE.bookmarks.push(pushmark)
   }
-render.render()
+render.renderMinus()
 } 
 
 
