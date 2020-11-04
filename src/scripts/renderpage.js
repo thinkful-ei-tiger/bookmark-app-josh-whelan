@@ -50,7 +50,7 @@ $('#addItem').html(
 
 const renderErrorMessage = function (inp){
     $('#errorMessageContainer').html(`
-        ${inp}<br>
+        ${inp}
     `)
 }
 
@@ -85,7 +85,7 @@ const createMainContainerItem = function(obj){
       <div class="expanded">
         <a href=${obj.url} target="_blank"><div class="visitButton" >Visit Site</div></a>
         <p>${obj.desc}</p>
-        <div class="deleteButton" onclick="" style="cursor: pointer;" data-id="${obj.id}">Delete Bookmark</div>
+        <button class="deleteButton" onclick="" style="cursor: pointer;" data-id="${obj.id}">Delete Bookmark</button>
       </div>`
     }
     return retu
