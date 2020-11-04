@@ -28,14 +28,19 @@ const handleNewBookmarkClicked = function (){
 
 const handleCreateNewBookmarkClicked = function (){
     $('#addItem').on('click','.createButton', function (evt) {
+        evt.preventDefault()
         let title = $('.js-addItemTitle').val()
         let url = $('.js-addItemLink').val()
         let desc = $('.js-description').val()
         let rating = $('.js-filter-button').val()
-        if (title === '' || url ===''){
+        if (title === ''||url ===''){
             render.renderErrorMessage('title and url are required')
             return
-        }else{
+        }else if(url.substr(0,7)!=="http://"&&url.substr(0,8)!=="https://"){
+            console.log(url.substr(0,7) +' not equal to http:// and '+url.substr(0,8)+' not equal to https://')
+            render.renderErrorMessage('url must begin with "https://" or "http://"')
+            return
+        } else {
             render.deleteErrorMessage()
         api.postBookmark(title,url,desc,rating)
         store.STORE.addItemWindow = 0
@@ -55,10 +60,11 @@ const handleDeleteBookmarkClicked = function (){
 }
 
 const handleFilterByStars = function (){
-    $('#top-buttons-container').on('click', '#filter-button', event => {
+    $('#top-buttons-container').on('change', '#filter-button', event => {
         console.log('filter by stars clicked')
         let newFilter = $(".js-filter-by").val()
         store.STORE.filterBy = newFilter
+        render.render()
         render.render()
 })
 }

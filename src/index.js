@@ -11,8 +11,9 @@ import listeners from './scripts/listeners'
 
 
 function main() {
-  api.getBookmarks()
+  render.renderShell()
   listeners.bindEventListeners()
+  api.getBookmarks()
   render.renderTopButtonContainer()
   render.render()
 }
